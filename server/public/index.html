@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Guess A Number!</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script defer src="scripts/client.js"></script>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Guess A Number!</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
     <h1>GUESSING GAME!</h1>
 
     <form onsubmit="submitGuesses(event)">
-      <input type="text" id="p1" placeholder="Input">
-      <input type="text" id="p2" placeholder="Input">
-      <input type="text" id="p3" placeholder="Input">
+      <input type="text" id="p1" placeholder="Input" />
+      <input type="text" id="p2" placeholder="Input" />
+      <input type="text" id="p3" placeholder="Input" />
 
       <button type="submit">Submit</button>
-  </form>
+    </form>
 
-  <section>
+    <section>
       <button type="submit" onclick="resetGame(event)">Reset</button>
-  </section>
+    </section>
 
-  <table>
-    <thead>
+    <table>
+      <thead>
         <tr>
-            <th>History of Guesses</th>
+          <th>History of Guesses</th>
         </tr>
-    </thead>
-    <tbody id="details"></tbody>
-</table>
-</body>
+      </thead>
+      <tbody id="details"></tbody>
+    </table>
+  </body>
 </html>

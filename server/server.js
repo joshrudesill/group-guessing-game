@@ -23,6 +23,7 @@ app.use(express.static("server/public"));
 app.post("/reset", (req, res) => {
   rounds = [];
   randomNumber = -1;
+  res.send(200);
 });
 
 // GET & POST Routes go here

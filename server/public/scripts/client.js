@@ -1,5 +1,6 @@
 function onReady() {
   console.log("JavaScript is loaded!");
+  getHistory();
 }
 
 onReady();
@@ -29,6 +30,17 @@ function submitGuesses(event) {
     });
 }
 
+function resetGame() {
+  axios({
+    method: "POST",
+    url: "/reset",
+  })
+    .then((res) => {
+      document.getElementById("details").innerHTML = "";
+    })
+    .catch((err) => console.log(err));
+}
+
 function getHistory() {
   axios({
     method: "GET",
@@ -40,11 +52,21 @@ function getHistory() {
       // get them in an array
       // need to look at the most recent row
       let allGuesses = response.data; // this will be an array
-      let currentGuesses = allGuesses[allGuesses.length - 1]; // this will be an object
-      let actualNumber = currentGuesses.actualNumber;
-      let p1 = currentGuesses.guesses.p1;
-      let p2 = currentGuesses.guesses.p2;
-      let p3 = currentGuesses.guesses.p3;
+      let currentGuesses = allGuesses[allGuesses.length - 1];
+      // this will be an object
+
+      let actualNumber = currentGuesses?.actualNumber;
+      console.log(actualNumber);
+      if (currentGuesses) {
+        let p1 = currentGuesses.guesses.p1;
+        let p2 = currentGuesses.guesses.p2;
+        let p3 = currentGuesses.guesses.p3;
+
+        if (Number(p1) === actualNumber) alert("P1 won!");
+        if (Number(p2) === actualNumber) alert("P2 won!");
+        if (Number(p3) === actualNumber) alert("P3 won!");
+      }
+
       console.log("p1", p1);
       console.log("p2", p2);
       console.log("p3", p3);

@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+header {
+  background-color: rgb(93, 146, 238);
+}
+h1 {
+  text-align: center;
+  font-family: "Roboto", helvetica, sans-serif;
+  font-style: normal;
+  font-size: 45px;
+}
+h2 {
+  margin: 20px 10px 10px 160px;
+}
+
+body {
+  background-color: #ddd0c8;
+  font-family: "Roboto", helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.higher {
+  background-color: rgba(233, 94, 70, 0.238);
+}
+.lower {
+  background-color: rgba(0, 128, 128, 0.324);
+}
+.correct {
+  border: 3px solid black;
+  background: rgb(255, 106, 0);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(255, 106, 0, 1) 27%,
+    rgba(58, 234, 57, 1) 70%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(255, 106, 0, 1) 27%,
+    rgba(58, 234, 57, 1) 70%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(255, 106, 0, 1) 27%,
+    rgba(58, 234, 57, 1) 70%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff6a00",endColorstr="#3aea39",GradientType=1);
+}
+/*FORM style */
+form {
+  margin: 0 auto;
+  width: 800px;
+  padding: 1em;
+  border: 1px solid #918d8d;
+  border-radius: 1em;
+  font-size: 16px;
+}
+
+form input {
+  display: block;
+  font-size: 14px;
+  padding: 1em;
+  border: 1px solid #918d8d;
+  margin: 20px 10px 10px 160px;
+  width: 400px;
+  border-radius: 3px;
+}
+
+/* TABLE DETAILS style */
+table {
+  width: 100%;
+  text-align: left;
+}
+
+table,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  height: 2.15em;
+  font-style: normal;
+}
+
+th,
+td {
+  font-style: normal;
+  padding: 0.5em;
+  min-width: 3.5em;
+}
+
+thead {
+  color: #d5dde5;
+  background: #1b1e24;
+  border-bottom: 4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size: 23px;
+  font-weight: 100;
+  padding: 24px;
+  text-align: left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(odd) {
+  background: #fcfcfc;
+}
+
+tbody tr:nth-child(even) {
+  background: #dcdcdc;
+}
+
+#submit-btn {
+  font-family: "Courier New", Courier, monospace;
+  border: 2px solid black;
+  margin: auto;
+  border-radius: 1em;
+}
+
+#reset-btn {
+  font-family: "Courier New", Courier, monospace;
+  border: 2px solid black;
+  margin: auto;
+  border-radius: 1em;
+}

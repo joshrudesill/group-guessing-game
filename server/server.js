@@ -6,6 +6,7 @@ const PORT = 5000;
 // This must be added before GET & POST routes.
 app.use(express.json());
 let rounds = [];
+let randomNumber = -1;
 /**
  {
   guesses: {
@@ -19,6 +20,10 @@ let rounds = [];
 
 // Serve up static files (HTML, CSS, Client JS)
 app.use(express.static("server/public"));
+app.post("/reset", (req, res) => {
+  rounds = [];
+  randomNumber = -1;
+});
 
 // GET & POST Routes go here
 app.get("/game", (req, res) => {
@@ -31,9 +36,11 @@ app.get("/game", (req, res) => {
 app.post("/game", (req, res) => {
   console.log(req.body);
   // Random Number
-  const number = Math.floor(Math.random() * 25);
+  if (randomNumber === -1) {
+    randomNumber = Math.floor(Math.random() * 25);
+  }
   // spread query params into guesses, and add number
-  let out = { guesses: { ...req.body }, actualNumber: number };
+  let out = { guesses: { ...req.body }, actualNumber: randomNumber };
   console.log(out);
   // Push into rounds
   rounds.push(out);

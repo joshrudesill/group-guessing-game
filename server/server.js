@@ -22,7 +22,14 @@ app.use(express.static("server/public"));
 
 // GET & POST Routes go here
 app.get("/game", (req, res) => {
-  console.log(req.query);
+  // spread query params into guesses, and add number
+  //Set status
+  res.status(200);
+  // Send
+  res.send(rounds);
+});
+app.post("/game", (req, res) => {
+  console.log(req.body);
   // Random Number
   const number = Math.floor(Math.random() * 25);
   // spread query params into guesses, and add number
@@ -31,9 +38,8 @@ app.get("/game", (req, res) => {
   // Push into rounds
   rounds.push(out);
   //Set status
-  res.status(201);
+  res.sendStatus(201);
   // Send
-  res.send(rounds);
 });
 
 app.listen(PORT, () => {

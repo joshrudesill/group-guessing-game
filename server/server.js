@@ -26,7 +26,7 @@ app.get("/game", (req, res) => {
   // Random Number
   const number = Math.floor(Math.random() * 25);
   // spread query params into guesses, and add number
-  let out = { guesses: { ...req.query }, number };
+  let out = { guesses: { ...req.query }, actualNumber: number };
   console.log(out);
   // Push into rounds
   rounds.push(out);

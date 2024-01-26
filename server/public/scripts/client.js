@@ -42,9 +42,13 @@ function resetGame() {
   })
     .then((res) => {
       document.getElementById("details").innerHTML = "";
+      document.getElementById('bot-talk').innerHTML = "";
+
     })
     .catch((err) => console.log(err));
 }
+let botTrashTalk = ["Get good scrub.", "You're gonna have to do better than that!", 
+"You're losing to a BOT!", "Getting warmer.", "My grandma's guess is better than yours and I don't even have a grandma."];
 
 function getHistory() {
   axios({
@@ -67,12 +71,16 @@ function getHistory() {
         let p2 = currentGuesses.guesses.p2;
         let p3 = currentGuesses.guesses.p3;
         let bot = currentGuesses.guesses.bot;
+        let trashTalk = botTrashTalk[Math.floor(Math.random() * botTrashTalk.length)]
 
         if (Number(p1) === actualNumber) alert("P1 won!");
         if (Number(p2) === actualNumber) alert("P2 won!");
         if (Number(p3) === actualNumber) alert("P3 won!");
         if (Number(bot) === actualNumber) alert("Bot won, you suck!");
+        
+        document.getElementById('bot-talk').innerHTML = `<h2>${trashTalk}</h2>`
       }
+    
 
       // change the DOM
       document.getElementById("details").innerHTML = "";

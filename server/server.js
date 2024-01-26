@@ -42,6 +42,7 @@ app.post("/game", (req, res) => {
   }
   // spread query params into guesses, and add number
   let out = { guesses: { ...req.body }, actualNumber: randomNumber };
+
   console.log(out);
   // Push into rounds
   rounds.push(out);

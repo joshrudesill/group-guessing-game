@@ -7,10 +7,14 @@ onReady();
 
 function submitGuesses(event) {
   event.preventDefault();
+  const botNumber = Math.floor(Math.random() * 25) + 1;
+  document.getElementById("bot").value = botNumber;
+
   let playerGuesses = {
     p1: document.getElementById("p1").value,
     p2: document.getElementById("p2").value,
     p3: document.getElementById("p3").value,
+    bot: botNumber,
   };
 
   axios({
@@ -23,6 +27,7 @@ function submitGuesses(event) {
       document.getElementById("p1").value = "";
       document.getElementById("p2").value = "";
       document.getElementById("p3").value = "";
+      document.getElementById("bot").value = "";
       getHistory();
     })
     .catch(function (error) {
@@ -61,16 +66,13 @@ function getHistory() {
         let p1 = currentGuesses.guesses.p1;
         let p2 = currentGuesses.guesses.p2;
         let p3 = currentGuesses.guesses.p3;
+        let bot = currentGuesses.guesses.bot;
 
         if (Number(p1) === actualNumber) alert("P1 won!");
         if (Number(p2) === actualNumber) alert("P2 won!");
         if (Number(p3) === actualNumber) alert("P3 won!");
+        if (Number(bot) === actualNumber) alert("Bot won, you suck!");
       }
-
-      console.log("p1", p1);
-      console.log("p2", p2);
-      console.log("p3", p3);
-      console.log("actualNumber", actualNumber);
 
       // change the DOM
       document.getElementById("details").innerHTML = "";
@@ -93,6 +95,12 @@ function getHistory() {
             : allGuesses[i].guesses.p3 > actualNumber
             ? "higher"
             : "lower";
+        const bot =
+          Number(allGuesses[i].guesses.bot) === actualNumber
+            ? "correct"
+            : allGuesses[i].guesses.bot > actualNumber
+            ? "higher"
+            : "lower";
         document.getElementById("details").innerHTML += `
       <tr>
         <td>Round: ${Number(i) + 1}</td>
@@ -106,6 +114,9 @@ function getHistory() {
         <td class='${p3}'>p3: ${
           allGuesses[i].guesses.p3
         } <span>${p3}</span></td>
+        <td class='${bot}'>Bot: ${
+          allGuesses[i].guesses.bot
+        } <span>${bot}</span></td>
       </tr>
       `;
       }
